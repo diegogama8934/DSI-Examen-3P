@@ -4,11 +4,17 @@
     margin: 0px;
     /* color: white; */
 }
+html,
+body {
+  height: calc(100%-30px);
+  width: calc(100% - 100px);
+}
 
-body{
-    /* background-color: #21232A; */
-    background-color: rgb(234, 234, 234);
-    padding: 100px;
+body {
+  background-color: rgb(234, 234, 234);
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
 }
 
 .center-text{
