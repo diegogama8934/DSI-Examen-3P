@@ -1,26 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Quizz time</title>
-</head>
-<body>
-    <h1 id="title" class="center-text">Quizz time</h1>
-    <p class="center-text pregunta">
-        ¿Cuál es la capital de Australia?
-    </p>
-    <ul class="options">
-        <li>
-            <button class="option">Sídney</button>
-        </li>
-        <li>
-            <button class="option">Melbourne</button>
-        </li>
-        <li>
-            <button class="option">Canberra</button>
-        </li>
-    </ul>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css">
+        <script src="./index.js"></script>
+        <title>Quizz time</title>
+    </head>
+    <body>
+
+        <!-- Titulo del juego -->
+        
+        <h1 id="quizz-time" class="center-text">Quizz time</h1>
+        
+        <!-- Contenido completo de la aplicacion -->
+
+        <div id="content">
+
+            <!-- Screen principal -->
+
+            <div class="screen" id="screen-home">
+
+                <!-- Indicacion, Screen principal -->
+
+                <p class="indicacion" id="select-user">Selecciona un usuario o crea uno nuevo.</p>
+                
+                <!-- Usuarios, Screen principal -->
+
+                <div id="users">
+                    <button class="user">Favio</button>
+                    <button class="user">Diego</button>
+                    <button class="user">Saúl</button>
+                    <button class="user">Rafael</button>
+                    <button class="user">André</button>
+                    <button class="btn-add-user" onclick="changePosition()">Agregar usuario</button>
+                </div>
+
+                <!-- Final, Screen principal -->
+
+            </div>
+
+            <!-- Screen, Cómo se juega -->
+
+            <div class="screen" id="screen-how-to-play">
+
+                <!-- Indicacion, Cómo se juega -->
+
+                <p class="indicacion" id="read-rules">
+                    Quizz es un juego donde tienes que responder 5 preguntas de cultura general en 60 segundos. Estas
+                    son las reglas del juego:
+                </p>
+
+                <!-- Reglas, Cómo se juega -->
+
+                <ul id="rules">
+                    <li>
+                        Al mostrar la pregunta, en el momento en que selecciones tu respuesta, se guardará automáticamente
+                        tu respuesta.
+                    </li>
+                    <li>
+                        Al responder la pregunta, se mostrará si la respuesta fue correcta o incorrecta.
+                    </li>
+                    <li>
+                        Al finalizar las 5 preguntas, se mostrarán las posiciones de la competencia entre todos los usuarios.
+                    </li>
+                    <li>
+                        La puntuación mostrada en la competencia será la calificación más alta que cada usuario ha tenido.
+                    </li>
+                    <li>
+                        Se pueden hacer tantos quizzes como se desee.
+                    </li>
+                </ul>
+
+                <!-- Final, Screen Cómo se juega -->
+            
+            </div>
+        </div>
+        
+        
+        
+
+        <!-- <p class="center-text pregunta">
+            ¿Cuál es la capital de Australia?
+        </p>
+        <ul class="options">
+            <li>
+                <button class="option">Sídney</button>
+            </li>
+            <li>
+                <button class="option">Melbourne</button>
+            </li>
+            <li>
+                <button class="option">Canberra</button>
+            </li>
+        </ul> -->
+    </body>
+    </html>
