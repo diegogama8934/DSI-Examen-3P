@@ -1,5 +1,5 @@
 *{
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 0px;
     margin: 0px;
 }
@@ -13,7 +13,7 @@ body{
     background-color: rgb(234, 234, 234);
     height: calc(100%-100px);
     width: 100%;
-    padding-top: 100px;
+    padding-top: 3.5%;
     overflow: hidden;
 }
 
@@ -33,7 +33,7 @@ body{
     cursor: pointer;
 }
 
-.btn-add-user{
+#btn-add-user{
     background-color:#f4a462;
     padding: 20px;
     color: white;
@@ -43,7 +43,7 @@ body{
     margin-bottom: 20px;
 }
 
-.btn-add-user:hover{
+#btn-add-user:hover{
     background-color: #F9AF72;
     cursor: pointer;
 }
@@ -88,7 +88,7 @@ body{
 #quizz-time{
     font-size: 40px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     margin-left: 100px;
     margin-right: 100px;
     background-color: #1e3f66;
@@ -146,19 +146,146 @@ body{
     border-radius: 20px;
 }
 
-.btn-aux{
-    position: relative;
-    left: 0px;
-    bottom: 0px;
-    width: 50px;
-    height: 50px;
-    background-color: #1e3f66;
-    color: white;
-    border-radius: 50%;
-    border: none;
+.nav-container {
+    text-align: center;
 }
 
-.btn-aux > img{
-    width: 20px;
-    height: 20px;
+.nav-screens{
+    display: inline-flex;
+}
+
+.nav-screen-item{
+    padding: 20px;
+    background-color: #e76e50;
+    font-size: 20px;
+    color: white;
+    border: none;  
+}
+
+.nav-screen-item:hover{
+    background-color: #EE7F64;
+    cursor: pointer;
+}
+
+#first-btn{
+    border-bottom-left-radius: 10px;
+}
+
+#last-btn{
+    border-bottom-right-radius: 10px;
+}
+
+#clasification{
+    display: flex;
+    flex-direction: row;
+}
+
+#no-podio{
+    margin-right: 20vw;
+    width: 10vw;
+}
+
+#no-podio > ol{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.podio{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.lugar-podio{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    background-color: #EABE3F;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.medalla{
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+#second-place{
+    height: 300px;
+    border-top-left-radius: 20px;
+}
+
+#first-place{
+    height: 350px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#third-place{
+    height: 250px;
+    border-top-right-radius: 20px;
+}
+
+#screen-team{
+    padding-top: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#screen-team > p{
+    margin-bottom: 20px;
+}
+
+.input-nombre{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 80%;
+    bottom: 100px;
+    margin-right: 10px;
+    border-style: solid;
+}
+
+.input-name-container{
+    display: flex;
+    position: absolute;
+    left: 35%;
+    right: 35%;
+    bottom: 100px;
+    width: 30%;
+}
+
+#btn-submit-name{
+    background-color: #1e3f66;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+#btn-cancel-name{
+    background-color: #e76e50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+#btn-submit-name:hover{
+    cursor: pointer;
+    background-color: #345071;
+}
+
+#btn-cancel-name:hover{
+    cursor: pointer;
+    background-color: #EE7F64;
 }
