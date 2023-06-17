@@ -1,25 +1,343 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nombre": "Juan",
-      "edad": 25
+      "nombre": "Favio",
+      "puntuacionM":0,
+      "tiempo":0,
+      "preguntasCont":{
+        "pregunta1":false,
+        "pregunta2":false,
+        "pregunta3":false,
+        "pregunta4":false,
+        "pregunta5":false,
+        "pregunta6":false,
+        "pregunta7":false,
+        "pregunta8":false,
+        "pregunta9":false,
+        "pregunta10":false,
+        "pregunta11":false,
+        "pregunta12":false,
+        "pregunta13":false,
+        "pregunta14":false,
+        "pregunta15":false,
+        "pregunta16":false,
+        "pregunta17":false,
+        "pregunta18":false,
+        "pregunta19":false,
+        "pregunta20":false,
+        "pregunta21":false,
+        "pregunta22":false,
+        "pregunta23":false,
+        "pregunta24":false,
+        "pregunta25":false,
+        "pregunta26":false,
+        "pregunta27":false,
+        "pregunta28":false,
+        "pregunta29":false,
+        "pregunta30":false
+      } 
     },
     {
-      "id": 2,
-      "nombre": "María",
-      "edad": 30
+      "nombre": "Diego",
+      "puntuacionM":0,
+      "tiempo":0,
+      "preguntasCont":{
+        "pregunta1":false,
+        "pregunta2":false,
+        "pregunta3":false,
+        "pregunta4":false,
+        "pregunta5":false,
+        "pregunta6":false,
+        "pregunta7":false,
+        "pregunta8":false,
+        "pregunta9":false,
+        "pregunta10":false,
+        "pregunta11":false,
+        "pregunta12":false,
+        "pregunta13":false,
+        "pregunta14":false,
+        "pregunta15":false,
+        "pregunta16":false,
+        "pregunta17":false,
+        "pregunta18":false,
+        "pregunta19":false,
+        "pregunta20":false,
+        "pregunta21":false,
+        "pregunta22":false,
+        "pregunta23":false,
+        "pregunta24":false,
+        "pregunta25":false,
+        "pregunta26":false,
+        "pregunta27":false,
+        "pregunta28":false,
+        "pregunta29":false,
+        "pregunta30":false
+      } 
     },
     {
-      "id": 3,
-      "nombre": "Pedro",
-      "edad": 35
+      "nombre": "Saul",
+      "puntuacionM":0,
+      "tiempo":0,
+      "preguntasCont":{
+        "pregunta1":false,
+        "pregunta2":false,
+        "pregunta3":false,
+        "pregunta4":false,
+        "pregunta5":false,
+        "pregunta6":false,
+        "pregunta7":false,
+        "pregunta8":false,
+        "pregunta9":false,
+        "pregunta10":false,
+        "pregunta11":false,
+        "pregunta12":false,
+        "pregunta13":false,
+        "pregunta14":false,
+        "pregunta15":false,
+        "pregunta16":false,
+        "pregunta17":false,
+        "pregunta18":false,
+        "pregunta19":false,
+        "pregunta20":false,
+        "pregunta21":false,
+        "pregunta22":false,
+        "pregunta23":false,
+        "pregunta24":false,
+        "pregunta25":false,
+        "pregunta26":false,
+        "pregunta27":false,
+        "pregunta28":false,
+        "pregunta29":false,
+        "pregunta30":false
+      } 
+    },
+    {
+      "nombre": "Rafael",
+      "puntuacionM":0,
+      "tiempo":0,
+      "preguntasCont":{
+        "pregunta1":false,
+        "pregunta2":false,
+        "pregunta3":false,
+        "pregunta4":false,
+        "pregunta5":false,
+        "pregunta6":false,
+        "pregunta7":false,
+        "pregunta8":false,
+        "pregunta9":false,
+        "pregunta10":false,
+        "pregunta11":false,
+        "pregunta12":false,
+        "pregunta13":false,
+        "pregunta14":false,
+        "pregunta15":false,
+        "pregunta16":false,
+        "pregunta17":false,
+        "pregunta18":false,
+        "pregunta19":false,
+        "pregunta20":false,
+        "pregunta21":false,
+        "pregunta22":false,
+        "pregunta23":false,
+        "pregunta24":false,
+        "pregunta25":false,
+        "pregunta26":false,
+        "pregunta27":false,
+        "pregunta28":false,
+        "pregunta29":false,
+        "pregunta30":false
+      } 
+    },
+    {
+      "nombre": "Andre",
+      "puntuacionM":0,
+      "tiempo":0,
+      "preguntasCont":{
+        "pregunta1":false,
+        "pregunta2":false,
+        "pregunta3":false,
+        "pregunta4":false,
+        "pregunta5":false,
+        "pregunta6":false,
+        "pregunta7":false,
+        "pregunta8":false,
+        "pregunta9":false,
+        "pregunta10":false,
+        "pregunta11":false,
+        "pregunta12":false,
+        "pregunta13":false,
+        "pregunta14":false,
+        "pregunta15":false,
+        "pregunta16":false,
+        "pregunta17":false,
+        "pregunta18":false,
+        "pregunta19":false,
+        "pregunta20":false,
+        "pregunta21":false,
+        "pregunta22":false,
+        "pregunta23":false,
+        "pregunta24":false,
+        "pregunta25":false,
+        "pregunta26":false,
+        "pregunta27":false,
+        "pregunta28":false,
+        "pregunta29":false,
+        "pregunta30":false
+      } 
     }
+    
   ],
-  "preguntas":[
-    {
-      "pregunta1":"valor",
-      "opcion1":"valor"
-    }
-  ]
+    "preguntas": [
+      {
+        "pregunta1": "¿Cuál es la capital de Australia?",
+        "opciones1": ["Sídney", "Melbourne", "Canberra"],
+        "respuestacorrecta1": "Canberra"
+      },
+      {
+        "pregunta2": "¿Cuál es el río más largo del mundo?",
+        "opciones2": ["Amazonas", "Nilo", "Yangtsé"],
+        "respuestacorrecta2": "Nilo"
+      },
+      {
+        "pregunta3": "¿En qué año se descubrió América?",
+        "opciones3": ["1492", "1776", "1812"],
+        "respuestacorrecta3": "1492"
+      },
+      {
+        "pregunta4": "¿Cuál es la capital de España?",
+        "opciones4": ["Madrid", "Barcelona", "Sevilla"],
+        "respuestacorrecta4": "Madrid"
+      },
+      {
+        "pregunta5": "¿Quién pintó La Mona Lisa?",
+        "opciones5": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh"],
+        "respuestacorrecta5": "Leonardo da Vinci"
+      },
+      {
+        "pregunta6": "¿Cuál es el océano más grande del mundo?",
+        "opciones6": ["Océano Pacífico", "Océano Atlántico", "Océano Índico"],
+        "respuestacorrecta6": "Océano Pacífico"
+      },
+      {
+        "pregunta7": "¿Cuál es la moneda de Japón?",
+        "opciones7": ["Yen", "Dólar", "Euro"],
+        "respuestacorrecta7": "Yen"
+      },
+      {
+        "pregunta8": "¿Cuál es el país más poblado del mundo?",
+        "opciones8": ["China", "India", "Estados Unidos"],
+        "respuestacorrecta8": "China"
+      },
+      {
+        "pregunta9": "¿Cuál es el monte más alto del mundo?",
+        "opciones9": ["Monte Everest", "Monte Kilimanjaro", "Monte McKinley"],
+        "respuestacorrecta9": "Monte Everest"
+      },
+      {
+        "pregunta10": "¿Cuál es el idioma más hablado del mundo?",
+        "opciones10": ["Chino mandarín", "Español", "Inglés"],
+        "respuestacorrecta10": "Chino mandarín"
+      },
+      {
+        "pregunta11": "¿En qué país se encuentra la Torre Eiffel?",
+        "opciones11": ["Francia", "Italia", "Reino Unido"],
+        "respuestacorrecta11": "Francia"
+      },
+      {
+        "pregunta12": "¿Quién escribió 'Don Quijote de la Mancha'?",
+        "opciones12": ["Miguel de Cervantes", "William Shakespeare", "Friedrich Nietzsche"],
+        "respuestacorrecta12": "Miguel de Cervantes"
+      },
+      {
+        "pregunta13": "¿Cuál es el metal más abundante en la corteza terrestre?",
+        "opciones13": ["Aluminio", "Hierro", "Cobre"],
+        "respuestacorrecta13": "Aluminio"
+      },
+      {
+        "pregunta14": "¿Cuál es el continente más grande del mundo?",
+        "opciones14": ["Asia", "África", "América"],
+        "respuestacorrecta14": "Asia"
+      },
+      {
+        "pregunta15": "¿Cuál es el planeta más grande del sistema solar?",
+        "opciones15": ["Júpiter", "Saturno", "Neptuno"],
+        "respuestacorrecta15": "Júpiter"
+      },
+      {
+        "pregunta16": "¿En qué año comenzó la Segunda Guerra Mundial?",
+        "opciones16": ["1939", "1945", "1914"],
+        "respuestacorrecta16": "1939"
+      },
+      {
+        "pregunta17": "¿Cuál es el animal terrestre más rápido?",
+        "opciones17": ["Guepardo", "Leopardo", "Lobo"],
+        "respuestacorrecta17": "Guepardo"
+      },
+      {
+        "pregunta18": "¿Cuál es la distancia aproximada entre la Tierra y la Luna?",
+        "opciones18": ["384,400 kilómetros", "149,600,000 kilómetros", "6,371 kilómetros"],
+        "respuestacorrecta18": "384,400 kilómetros"
+      },
+      {
+        "pregunta19": "¿Quién inventó la imprenta?",
+        "opciones19": ["Johannes Gutenberg", "Isaac Newton", "Thomas Edison"],
+        "respuestacorrecta19": "Johannes Gutenberg"
+      },
+      {
+        "pregunta20": "¿Cuál es la obra más famosa de William Shakespeare?",
+        "opciones20": ["Romeo y Julieta", "Hamlet", "Macbeth"],
+        "respuestacorrecta20": "Hamlet"
+      },
+      {
+        "pregunta21": "¿Cuál es el país más grande de América del Sur?",
+        "opciones21": ["Brasil", "Argentina", "Colombia"],
+        "respuestacorrecta21": "Brasil"
+      },
+      {
+        "pregunta22": "¿Cuál es el metal más valioso?",
+        "opciones22": ["Oro", "Platino", "Paladio"],
+        "respuestacorrecta22": "Oro"
+      },
+      {
+        "pregunta23": "¿Cuál es el océano más pequeño del mundo?",
+        "opciones23": ["Océano Ártico", "Océano Índico", "Océano Pacífico"],
+        "respuestacorrecta23": "Océano Ártico"
+      },
+      {
+        "pregunta24": "¿En qué año se firmó la Declaración de Independencia de Estados Unidos?",
+        "opciones24": ["1776", "1789", "1812"],
+        "respuestacorrecta24": "1776"
+      },
+      {
+        "pregunta25": "¿Quién pintó 'La noche estrellada'?",
+        "opciones25": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci"],
+        "respuestacorrecta25": "Vincent van Gogh"
+      },
+      {
+        "pregunta26": "¿Cuál es la lengua oficial más hablada en el mundo?",
+        "opciones26": ["Chino mandarín", "Español", "Inglés"],
+        "respuestacorrecta26": "Inglés"
+      },
+      {
+        "pregunta27": "¿Cuál es el país más pequeño del mundo?",
+        "opciones27": ["Ciudad del Vaticano", "Mónaco", "Nauru"],
+        "respuestacorrecta27": "Ciudad del Vaticano"
+      },
+      {
+        "pregunta28": "¿En qué año se fundó la compañía Apple?",
+        "opciones28": ["1976", "1984", "1991"],
+        "respuestacorrecta28": "1976"
+      },
+      {
+        "pregunta29": "¿Cuál es el desierto más grande del mundo?",
+        "opciones29": ["Desierto del Sahara", "Desierto de Gobi", "Desierto de Atacama"],
+        "respuestacorrecta29": "Desierto del Sahara"
+      },
+      {
+        "pregunta30": "¿Cuál es el ave más grande del mundo?",
+        "opciones30": ["Avestruz", "Águila", "Pingüino"],
+        "respuestacorrecta30": "Avestruz"
+      }
+    ]
+  
 }
