@@ -57,25 +57,36 @@ body{
     border-radius: 20px;
 } */
 
-/* .options{
+.options{
     list-style-type: none;
-} */
+    width: 60%;
+}
 
-/* .option{
+.option{
     color: white;
-    width: 100%;
+    width: auto;
     padding: 20px;
     margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 30px;
-    background-color: #e76e50;
-    border-style: none;
+    font-size: 20px;
+    background-color: #2a9d90;
+    border-style: solid;
+    border-color: rgb(234, 234, 234);
     border-radius: 20px;
-} */
+    text-align: center;
+    transition-duration: .3s;
+}
+
+.option:hover{
+    cursor: pointer;
+    background-color: rgb(234, 234, 234);
+    border-color: #2a9d90;
+    border-style: solid;
+    color: #2a9d90;
+}
 
 #content{
     display: flex;
-    transition: transform 1.5s;
+    /* transition: transform 1.5s; */
 }
 
 .screen{
@@ -146,8 +157,17 @@ body{
     border-radius: 20px;
 }
 
-.nav-container {
+#nav-container {
     text-align: center;
+    transition: opacity .3s;
+}
+
+.desvanecer{
+    opacity: 0;
+}
+
+.aparecer{
+    opacity: 1;
 }
 
 .nav-screens{
@@ -165,6 +185,12 @@ body{
 .nav-screen-item:hover{
     background-color: #EE7F64;
     cursor: pointer;
+}
+
+.nav-screen-item-aux{
+    padding: 20px;
+    font-size: 20px;
+    border: none;
 }
 
 #first-btn{
@@ -254,11 +280,10 @@ body{
 
 .input-name-container{
     display: flex;
-    position: absolute;
-    left: 35%;
-    right: 35%;
-    bottom: 100px;
+    margin-top: 15%;
     width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 #btn-submit-name{
@@ -288,4 +313,142 @@ body{
 #btn-cancel-name:hover{
     cursor: pointer;
     background-color: #EE7F64;
+}
+
+#actions-profile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.5s;
+}
+
+#buttons-profile{
+    margin-bottom: 3.5%;
+}
+
+#buttons-profile > button{
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#btn-play{
+    padding: 20px;
+    background-color: green;
+}
+
+#btn-play:hover{
+    cursor: pointer;
+    background-color: rgb(43, 155, 43);
+}
+
+#btn-return{
+    padding: 10px;
+    background-color: #1e3f66;
+}
+
+#btn-return:hover{
+    cursor: pointer;
+    background-color: #345071;
+}
+
+#btn-delete-profile{
+    padding: 10px;
+    background-color: red;
+}
+
+#btn-delete-profile:hover{
+    cursor: pointer;
+    background-color: rgb(252, 75, 75);
+}
+
+.user-data{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#pre-game-timer{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 20px;
+    margin-bottom: 5%;
+}
+
+#progres-bar-1{
+    background-color: rgb(221, 221, 221);
+    width: 800px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#progres-1{
+    background-color: #e76e50;
+    height: 40px;
+    width: 100%;
+    transition: width 5s;
+    border-radius: 10px;
+    transition-timing-function: linear;
+}
+
+#first-timer-container{
+    display:flex; 
+    flex-direction: column; 
+    align-items:center;
+    transition: opacity .5s;
+}
+
+.item-pregunta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity .25s;
+}
+
+#progres-bar-2{
+    background-color: rgb(221, 221, 221);
+    height: 40px;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 2%;
+}
+
+#progres-2{
+    background-color: #1e3f66;
+    height: 40px;
+    width: 100%;
+    transition: all 1s;
+    border-radius: 10px;
+    transition-timing-function: linear;
+}
+
+#left-time{
+    text-align: right;
+    font-size: 30px;
+    width: auto;
+    margin-top: 1%;
+    font-weight: 600;
+}
+
+#time-2-container{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: auto;
+}
+
+#puntuacion{
+    display:inline;
+    width:120px;
+    position:relative;
+    left:0px;
+    top:-90%;
+    background-color:#e76e50;
+    color: white;
+    border-radius: 10px;
 }

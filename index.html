@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyD9HZY9JRZf9Y-N8BbWbXcIhEe8A25Q610",
+        authDomain: "examen-3p-dsi.firebaseapp.com",
+        projectId: "examen-3p-dsi",
+        storageBucket: "examen-3p-dsi.appspot.com",
+        messagingSenderId: "778400281283",
+        appId: "1:778400281283:web:e993be55f1bfb06eae6876"
+    };
+    
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    console.log(db);
+    </script>
     <script src="./index.js"></script>
+    <script src="./functions/screens.js"></script>
+    <script src="./functions/profile.js"></script>
+    <script src="./functions/users.js"></script>
+    <script src="./functions/preGame.js"></script>
+    <script src="./functions/game.js"></script>
     <title>Quizz time</title>
 </head>
-<body onload="colorHomeActive()">
+<body onload="loadApp()">
 
     <!-- Titulo del juego -->
     
     <h1 id="quizz-time" class="center-text">Quizz time</h1>
-    <div class="nav-container">
+    <div id="nav-container">
         <nav class="nav-screens">
             <button class="nav-screen-item" id="first-btn" onclick="moveToHome()">Inicio</button>
             <button class="nav-screen-item" id="second-btn" onclick="moveHowToPlay()">¿Cómo jugar?</button>
@@ -22,8 +43,35 @@
     </div>
     
     <!-- Contenido completo de la aplicacion -->
+    
+    <!--
+        Esta screen tiene left-100% para que cuando la página cargue, se inicie el página principal y no en la página del juego. 
+        Se podría usar sin eso, pero al refrescar la página, salía casi instantaneamente que la página estaba en el juego y no
+        en la parte principal.
+    -->
 
-    <div id="content">
+    <div id="content" style="position:absolute; left: -100%;">
+
+        <!-- Screen Quiz -->
+        
+        <div class="screen" id="screen-game">
+
+            <div id="actions-profile" class="aparecer">
+                <div id="buttons-profile">
+                    <button id="btn-return" onclick="backToMainScreen()">Regresar</button>
+                    <button id="btn-play" onclick="startPreGame()">Jugar</button>
+                    <button id="btn-delete-profile">Eliminar perfil</button>
+                </div>
+    
+                <div>
+                    <ul style="list-style-type: none;">
+                        <li class="user-data"><b>Mejor quizz: </b><span>4</span>/5 aciertos en <span>37</span> segundos.</li>
+                        <li class="user-data"><b>Lugar en la clasificación: </b><span>1</span>°.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
 
         <!-- Screen principal -->
 
@@ -36,11 +84,11 @@
             <!-- Usuarios, Screen principal -->
 
             <div id="users">
-                <p class="user">Favio</p>
-                <p class="user">Diego</p>
+                <!-- <p class="user" onclick="viewProfile()">Favio</p> -->
+                <!-- <p class="user">Diego</p>
                 <p class="user">Saúl</p>
                 <p class="user">Rafael</p>
-                <p class="user">André</p>
+                <p class="user">André</p> -->
                 <button id="btn-add-user" onclick="addUser()">Agregar usuario</button>
             </div>
 
@@ -94,14 +142,14 @@
 
             <div id="clasification">
                 <div id="no-podio">
-                    <ol start="4">
+                    <!-- <ol start="4">
                         <li>Rafael</li>
                         <li>Saúl</li>
                         <li>André</li>
-                    </ol>
+                    </ol> -->
                 </div>
                 <div class="podio">
-                    <div class="lugar-podio" id="second-place">
+                    <!-- <div class="lugar-podio" id="second-place">
                         <p>
                             <span style="font-weight: 900;">Diego<br></span>
                             4/5 <br>
@@ -124,7 +172,7 @@
                             30 seg
                         </p>
                         <img src="./src/medalla-bronce.png" alt="Medalla bronce" class="medalla">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -141,23 +189,5 @@
             </ul>
         </div>
     </div>
-    
-    
-    
-
-    <!-- <p class="center-text pregunta">
-        ¿Cuál es la capital de Australia?
-    </p>
-    <ul class="options">
-        <li>
-            <button class="option">Sídney</button>
-        </li>
-        <li>
-            <button class="option">Melbourne</button>
-        </li>
-        <li>
-            <button class="option">Canberra</button>
-        </li>
-    </ul> -->
 </body>
 </html>

@@ -1,143 +1,33 @@
-function colorHomeActive(){
-    const btnHome = document.getElementById('first-btn');
-    btnHome.setAttribute("style", "background-color: #EE7F64;")
-}
+//Se coloca el contenido en la screen principal y se colorea el boton de la nav bar para que esté activo
 
-function quitColor(){
-    const btns = document.getElementsByClassName( 'nav-screen-item' )
-    const btnsArr = [...btns]
-    
-    const btn = btnsArr.find(b => b.style.backgroundColor == "rgb(238, 127, 100)");
-    btn.style = "";
-}
+function loadApp(){
 
-function moveHowToPlay(){
-    //Quitar color del boton de origen
-    quitColor();
+    //Como la primera Screen de la App es la del juego, cuando la página cargue se tiene que mover a la página de inicio.
 
-    const btnActual = document.getElementById('second-btn');
-    btnActual.setAttribute("style","background-color: #EE7F64;");
+    //Se selecciona todo el contenido y el número de pixeles que se va a mover-
 
-    // Elemento que voy a mover
-    const contenido = document.getElementById( 'content' );
-
-    //Número de pixeles que se moverá
+    const content = document.getElementById( 'content' );
     const pixeles = document.getElementById( 'screen-home' ).offsetWidth;
 
-    // Movimiento de los elementoss
-    contenido.style.transform = `translateX(-${pixeles}px)`;
-}
+    //Se quitan los estilos que había para que no se viera la página de juego de manera instantánea y se traslada al mismo lugar 
+    //(es decir, no se mueve, solamente aquí se hace la funcionalidad para que siga el mismo procedimiento de las demás pantallas
+    //y no se tenga que mover siempre accediendo a su atributo del elemento).
 
-function moveToHome(){
-    //Quitar color del boton de origen
-    quitColor();
+    content.setAttribute( 'style' , '' );
+    content.style.transform = `translateX(-${ pixeles }px)`
 
-    const btnActual = document.getElementById('first-btn');
-    btnActual.setAttribute("style","background-color: #EE7F64;");
+    //Después de que se haya cargado las propiedades debidas (en un tiempo considerado de medio segundo) se pondrá que las animaciones
+    //que tenga cuando se transforme, duren 1.5 segundos.
 
-    // Elemento que voy a mover
-    const contenido = document.getElementById( 'content' );
+    setTimeout(() => {
+        content.style.transition = "transform 1.5s";
+    }, 500)
 
-    //Número de pixeles que se moverá
-    const pixeles = document.getElementById( 'screen-home' ).offsetWidth;
+    //Se pone el botón de inicio como que está "Activo"
 
-    // Movimiento de los elementoss
-    contenido.style.transform = `translateX(0px)`;
-}
+    const btnHome = document.getElementById( 'first-btn' );
+    btnHome.setAttribute( 'style' , 'background-color: #EE7F64;' );
 
-function moveClasification(){
-    //Quitar color del boton de origen
-    quitColor();
-
-    const btnActual = document.getElementById('third-btn');
-    btnActual.setAttribute("style","background-color: #EE7F64;");
-
-    // Elemento que voy a mover
-    const contenido = document.getElementById( 'content' );
-
-    //Número de pixeles que se moverá
-    const pixeles = document.getElementById( 'screen-home' ).offsetWidth;
-
-    // Movimiento de los elementoss
-    contenido.style.transform = `translateX(-${2*pixeles}px)`;
-}
-
-function moveTeam(){
-    //Quitar color del boton de origen
-    quitColor();
-
-    const btnActual = document.getElementById('last-btn');
-    btnActual.setAttribute("style","background-color: #EE7F64;");
-
-    // Elemento que voy a mover
-    const contenido = document.getElementById( 'content' );
-
-    //Número de pixeles que se moverá
-    const pixeles = document.getElementById( 'screen-home' ).offsetWidth;
-
-    // Movimiento de los elementoss
-    contenido.style.transform = `translateX(-${3*pixeles}px)`;
-}
-
-function addUser(){
-
-    const screen = document.getElementById( 'screen-home' );
-    const botonAddUser = document.getElementById( 'btn-add-user' );
-
-    const div = document.createElement( 'div' );
-    const inputName = document.createElement( 'input' );
-    const buttonAceptar = document.createElement( 'button' );
-    const buttonCancelar = document.createElement( 'button' );
-    
-    inputName.type = Text;
-    inputName.setAttribute( 'class' , 'input-nombre' );
-    inputName.setAttribute( 'placeholder' , 'Escribe tu nombre' );
-    inputName.setAttribute( 'id' , 'ipt-add-user' );
-
-    buttonAceptar.setAttribute( 'type' , 'submit' );
-    buttonAceptar.setAttribute( 'id' , 'btn-submit-name')
-    buttonAceptar.setAttribute( 'onclick' , 'saveUser()' )
-    buttonAceptar.innerText = 'Aceptar'
-
-    buttonCancelar.setAttribute( 'type' , 'button' );
-    buttonCancelar.setAttribute( 'id' , 'btn-cancel-name' );
-    buttonCancelar.setAttribute( 'onclick' , 'cancelAddUser()' )
-    buttonCancelar.innerText = 'Cancelar'
-
-    div.setAttribute( 'class' , 'input-name-container' );
-    div.setAttribute( 'id' , 'input-name-container')
-
-    div.append( inputName , buttonAceptar , buttonCancelar );
-    screen.appendChild( div );
-
-    botonAddUser.disabled = true;
-}
-
-function saveUser(){
-
-    const inputNombre = document.getElementById('ipt-add-user');
-
-    if (inputNombre.value == "") {
-        return;
-    }
-
-    const users = document.getElementById( 'users' );
-    const div = document.getElementById( 'input-name-container' );
-    const botonAddUser = document.getElementById( 'btn-add-user' );
-    
-    const p = document.createElement( 'p' );
-    p.innerText = inputNombre.value;
-    p.setAttribute( 'class' , 'user' );
-
-    users.insertBefore(p, document.getElementById( 'btn-add-user' ));
-    div.remove();
-    botonAddUser.disabled = false;
-}
-
-function cancelAddUser(){
-    const div = document.getElementById( 'input-name-container' );
-    const botonAddUser = document.getElementById( 'btn-add-user' );
-
-    div.remove()
-    botonAddUser.disabled = false;
+    loadUsers();
+    classifyUsers();
 }
