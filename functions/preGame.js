@@ -1,3 +1,4 @@
+var preguntas = [];
 //Cargar el conteo regresivo de 5 segundos para iniciar el juego y después iniciar el juego como tal
 function startPreGame(){
 
@@ -15,7 +16,45 @@ function startPreGame(){
 
     //
     setTimeout( startGame , 5750 );
+    preguntasQuiz(nombreUsuarioEliminar);
 }
+
+
+//funciones para crear un arreglo con las preguntas que contestara el usuario
+async function preguntasQuiz(nombreUsuario) {
+    const userDoc = await userCollection.doc(nombreUsuario).get();
+    const preguntasCont = userDoc.data().preguntasCont;
+    const preguntasFalse = Object.keys(preguntasCont).filter(pregunta => preguntasCont[pregunta] === false);
+    
+    const preguntasAleatorias = obtenerPreguntasAleatorias(preguntasFalse, 5);
+    
+    for (const pregunta of preguntasAleatorias) {
+      const preguntaDoc = await db.collection("preguntas").doc(pregunta).get();
+      const preguntaData = preguntaDoc.data();
+      preguntas.push({
+        pregunta: preguntaData.pregunta,
+        resCorrecta: preguntaData.resCorrecta,
+        opciones: preguntaData.opciones
+      });
+      preguntasCont[pregunta] = true; // Cambiar el valor a true
+    }
+    
+    await userCollection.doc(nombreUsuario).update({ preguntasCont }); // Actualizar el campo preguntasCont
+    
+    console.log(preguntas);
+  }
+  
+  
+  function obtenerPreguntasAleatorias(preguntas, cantidad) {
+    const preguntasAleatorias = [];
+    while (preguntas.length > 0 && preguntasAleatorias.length < cantidad) {
+      const indiceAleatorio = Math.floor(Math.random() * preguntas.length);
+      preguntasAleatorias.push(preguntas[indiceAleatorio]);
+      preguntas.splice(indiceAleatorio, 1);
+    }
+    return preguntasAleatorias;
+  }
+  
 
 //Quitar la screen donde se puede ver el perfil, regresar a inicio y eliminar perfil
 function quitProfileScreen(){

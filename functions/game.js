@@ -1,9 +1,89 @@
+var numeroPregunta=1;
+var valorActual,leftTime;
+var intervalID;
 function startGame(){
 
     loadGameScreen();
 
     loadPuntuacion();
+    
+    cambiarPregunta(0)
+    console.log('el usuario que esta llegando es :' + nombreUsuarioEliminar);
 }
+
+
+async function actualizarPerfil(nombreUsuario, puntuacion, tiempoIns) {
+  const userRef = userCollection.doc(nombreUsuario);
+  const userDoc = await userRef.get();
+
+  if (userDoc.exists) {
+    const { puntuacionM, tiempo: tiempoAnterior } = userDoc.data(); 
+    
+
+    if (puntuacion > puntuacionM || (puntuacion === puntuacionM && tiempoIns < tiempoAnterior)) {
+      await userRef.update({
+        puntuacionM: puntuacion,
+        tiempo: tiempoIns
+      });
+
+      console.log('Perfil actualizado correctamente.');
+    } else {
+      console.log('No se cumplieron las condiciones para actualizar el perfil.');
+    }
+  } else {
+    console.log('El usuario no existe en la colección.');
+  }
+}
+
+
+function checkAnswer(opcionClick){
+  const respondidasElement=document.querySelector('#respondidas');
+  const totalElement=document.querySelector('#total');
+  valorActual = parseInt(respondidasElement.textContent);
+  const valorTotal=parseInt(totalElement.textContent);
+  console.log('la opcion que clickeaste es: '+opcionClick);
+  console.log('la opcion correcta deberia ser: '+preguntas[0].resCorrecta);
+  if(numeroPregunta>5){
+    clearInterval(intervalID);
+    // const tiempo=document.querySelector('.left-time');
+    //aqui entra lo que pasa cuando ya se completo el quizz con las 5 preguntas, nombreusuarioeliminar es la variable con el nombre del usuario, (valorActual+1) es la variable de cuantas preguntas acerto, (60-leftTime) es el tiempo que hizo en este quiz
+    console.log('tus aciertos son: '+valorActual+ ' tu tiempo es: '+(60-leftTime));
+    actualizarPerfil(nombreUsuarioEliminar,(valorActual+1),(60-leftTime));
+    //aqui deberia ir la funcion para que se ponga el nuevo forumlario
+    moveToHome();
+   
+  }else{
+    if(opcionClick===preguntas[0].resCorrecta){
+      respondidasElement.textContent=valorActual+1;
+      totalElement.textContent=valorTotal+1;
+      
+    }
+    else{
+      totalElement.textContent=valorTotal+1;  
+    }
+  } 
+
+  preguntas.splice(0,1);
+  cambiarPregunta(0);
+}
+
+function cambiarPregunta(indice) {
+  const elementoPregunta = document.querySelector('.indicacion');
+  const optionsPregunta = document.querySelectorAll('.option');
+
+  
+  elementoPregunta.innerHTML = '<b>' + 'Pregunta ' + numeroPregunta + ':' + '<b>' + preguntas[indice].pregunta;
+  optionsPregunta[0].innerHTML = preguntas[indice].opciones[0];
+  optionsPregunta[1].innerHTML = preguntas[indice].opciones[1];
+  optionsPregunta[2].innerHTML = preguntas[indice].opciones[2];
+
+  numeroPregunta=numeroPregunta+1;
+  
+
+console.log(preguntas);
+  
+}
+
 
 function loadGameScreen(){
 
@@ -35,9 +115,9 @@ function loadGameScreen(){
     
     
     //Se colocan las funcionalidades a cada opcion
-    opcion1.setAttribute( 'onclick' , 'checkAnswer(event)' );
-    opcion2.setAttribute( 'onclick' , 'checkAnswer(event)' );
-    opcion3.setAttribute( 'onclick' , 'checkAnswer(event)' );
+    opcion1.setAttribute( 'onclick' , 'checkAnswer(this.textContent)' );
+    opcion2.setAttribute( 'onclick' , 'checkAnswer(this.textContent)' );
+    opcion3.setAttribute( 'onclick' , 'checkAnswer(this.textContent)' );
     
     //Dependiento de la respuesta correcta, se agrega un id a la opción que contenga la respuesta correcta
     //(en este caso la opción 3)
@@ -85,11 +165,12 @@ function loadGameTimer(){
     timeContainer.setAttribute( 'id' , 'time-2-container' );
 
     //Se va reduciendo el número de segundo que se muestra al usuario según el tiempo faltante
-    const intervalId = setInterval(()=>{
+    intervalID = setInterval(()=>{
         timeLeft--;
         time.innerHTML = `${timeLeft}seg`
         progres2.setAttribute( 'style' , `width:${ ( timeLeft /  60 ) * 100}%` );
-        
+        leftTime=timeLeft;      
+
         if ( timeLeft <= 30 && timeLeft>= 11) {
             ( timeLeft % 2 == 0) ? progres2.style.backgroundColor = '#f0b60a' : progres2.style.backgroundColor = '#F8D56F'; 
         }
@@ -97,7 +178,13 @@ function loadGameTimer(){
         if ( timeLeft <= 10) {
             ( timeLeft % 2 == 0 ) ? progres2.style.backgroundColor = '#E53131' : progres2.style.backgroundColor = '#E86C6C';
         }   
-        if (timeLeft <= 0) clearInterval(intervalId);
+        if (timeLeft <= 0) {
+          clearInterval(intervalID);
+          console.log('tus aciertos al acabarse el tiempo son: '+(valorActual+1)+ ' tu tiempo es: '+(60-leftTime));
+          actualizarPerfil(nombreUsuarioEliminar,(valorActual+1),(60-leftTime));
+            //aqui deberia ir la funcion para que se ponga el nuevo forumlario
+           moveToHome();
+        }
     }, 1000);
 
     // Se organizan los elementos

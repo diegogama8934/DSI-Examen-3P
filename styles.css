@@ -216,7 +216,7 @@ body{
     font-weight: 600;
 }
 
-.podio{
+#podio{
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -280,7 +280,7 @@ body{
 
 .input-name-container{
     display: flex;
-    margin-top: 15%;
+    margin-top: 5%;
     width: 30%;
     margin-left: 35%;
     margin-right: 35%;
